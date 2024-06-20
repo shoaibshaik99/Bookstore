@@ -22,6 +22,9 @@ namespace Bookstore
             builder.Services.AddTransient<IUserRepo, UserRepo>();
             builder.Services.AddTransient<IUserService, UserService>();
 
+            builder.Services.AddTransient<IBooksRepo, BooksRepo>();
+            builder.Services.AddTransient<IBooksService, BooksService>();
+
             // Configure NLog
             builder.Host.UseNLog(); // Ensure NLog is used by the host
 
