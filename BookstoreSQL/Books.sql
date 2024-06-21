@@ -1,4 +1,6 @@
 use BookstoreDB;
+select * from Books
+
 
 CREATE TABLE Books (
     BookId INT PRIMARY KEY IDENTITY,
