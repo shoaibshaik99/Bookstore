@@ -13,12 +13,12 @@ using ModelLayer.Models;
 
 namespace RepositoryLayer.Services
 {
-    public class UserRepo : IUserRepo
+    public class UsersRepo : IUsersRepo
     {
         private readonly IConfiguration _config;
         private readonly string _connectionString;
 
-        public UserRepo(IConfiguration config)
+        public UsersRepo(IConfiguration config)
         {
             _config = config;
             _connectionString = _config.GetConnectionString("BookstoreDBConnection");

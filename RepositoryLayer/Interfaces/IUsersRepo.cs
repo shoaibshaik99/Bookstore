@@ -4,7 +4,7 @@ using ModelLayer.Models;
 
 namespace RepositoryLayer.Interfaces
 {
-    public interface IUserRepo
+    public interface IUsersRepo
     {
         public bool IsRegisteredEmail(string email);
         public UserEntity RegisterUser(RegisterUserModel userModel);

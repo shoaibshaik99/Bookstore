@@ -6,11 +6,11 @@ using ModelLayer.Models;
 
 namespace ServiceLayer.Services
 {
-    public class UserService : IUserService
+    public class UsersService : IUsersService
     {
-        private readonly IUserRepo _userRepo;
+        private readonly IUsersRepo _userRepo;
 
-        public UserService(IUserRepo userRepo)
+        public UsersService(IUsersRepo userRepo)
         {
             _userRepo = userRepo;
         }

@@ -221,12 +221,12 @@ BEGIN
 END;
 
 --Remove item from cart
-CREATE PROCEDURE usp_remove_cart_item
+Alter PROCEDURE usp_remove_cart_item
     @userId INT,
     @cartItemId INT
 AS
 BEGIN
-    SET NOCOUNT ON;
+    --SET NOCOUNT ON;
 
     BEGIN TRY
         -- Check if the cart item exists and belongs to the user

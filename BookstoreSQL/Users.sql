@@ -4,6 +4,8 @@ go
 use BookstoreDB;
 go
 
+select * from Users
+
 create table Users (
     userId int primary key identity(1,1),
     fullName varchar(100) not null,

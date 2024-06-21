@@ -19,14 +19,17 @@ namespace Bookstore
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddTransient<IUserRepo, UserRepo>();
-            builder.Services.AddTransient<IUserService, UserService>();
+            builder.Services.AddTransient<IUsersRepo, UsersRepo>();
+            builder.Services.AddTransient<IUsersService, UsersService>();
 
             builder.Services.AddTransient<IBooksRepo, BooksRepo>();
             builder.Services.AddTransient<IBooksService, BooksService>();
 
             builder.Services.AddTransient<ICartsRepo, CartsRepo>();
             builder.Services.AddTransient<ICartsService, CartsService>();
+            
+            builder.Services.AddTransient<IWishListsRepo, WishListsRepo>();
+            builder.Services.AddTransient<IWishListsService, WishListsService>();
 
             // Configure NLog
             builder.Host.UseNLog(); // Ensure NLog is used by the host

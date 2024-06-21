@@ -14,14 +14,14 @@ namespace Bookstore.Controllers
     [Route("api/[controller]")]
     public class UsersController : ControllerBase
     {
-        private readonly IUserService _userService;
+        private readonly IUsersService _userService;
         private readonly ILogger<UsersController> _logger;
         private static Logger logger = LogManager.GetCurrentClassLogger();
-        private readonly IUserRepo _userRepo;
+        private readonly IUsersRepo _userRepo;
 
         private readonly IBus _bus;
 
-        public UsersController(IUserService userService, ILogger<UsersController> logger, IUserRepo userRepo, IBus bus)
+        public UsersController(IUsersService userService, ILogger<UsersController> logger, IUsersRepo userRepo, IBus bus)
         {
             _userService = userService;
             _logger = logger;
