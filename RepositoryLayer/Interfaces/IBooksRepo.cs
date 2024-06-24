@@ -10,13 +10,13 @@ namespace RepositoryLayer.Interfaces
 {
     public interface IBooksRepo
     {
-        public BookEntity AddBook(AddBookModel bookModel);
+        public BookEntity AddBook(Add_or_Update_BookModel bookModel);
 
         public FetchBookModel GetBookById(int bookId);
 
         public List<FetchBookModel> GetAllBooks();
 
-        public bool UpdateBook(int bookId, UpdateBookModel bookModel);
+        public bool UpdateBook(int bookId, Add_or_Update_BookModel bookModel);
 
         public bool DeleteBook(int bookId);
     }

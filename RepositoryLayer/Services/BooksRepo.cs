@@ -24,7 +24,7 @@ namespace RepositoryLayer.Services
             _connectionString = _config.GetConnectionString("BookstoreDBConnection");
         }
 
-        public BookEntity AddBook(AddBookModel bookModel)
+        public BookEntity AddBook(Add_or_Update_BookModel bookModel)
         {
             BookEntity newBook = null;
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -137,7 +137,7 @@ namespace RepositoryLayer.Services
             return books;
         }
 
-        public bool UpdateBook(int bookId, UpdateBookModel bookModel)
+        public bool UpdateBook(int bookId, Add_or_Update_BookModel bookModel)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {

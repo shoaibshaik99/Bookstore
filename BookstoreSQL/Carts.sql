@@ -1,4 +1,4 @@
-USE BookstoreDB;
+1USE BookstoreDB;
 
 Select * from Carts;
 drop table Carts;
@@ -13,7 +13,7 @@ CREATE TABLE Carts (
     updatedAt DATETIME DEFAULT GETDATE()
 );
 
---procedure to fetch a specific user's cart details
+--procedure to add books to cart of an user.
 ALTER PROCEDURE usp_add_item_to_cart
     @userId INT,
     @bookId INT,
@@ -251,3 +251,45 @@ BEGIN
 END;
 
 
+---------------------------Fetch all orders---------------
+CREATE PROCEDURE usp_get_all_orders
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    BEGIN TRY
+        SELECT 
+            o.OrderId,
+            o.UserId,
+            u.fullName AS UserName,
+            o.BookId,
+            b.Title AS BookTitle,
+            o.Quantity,
+            o.TotalOriginalBookPrice,
+            o.TotalFinalBookPrice,
+            o.OrderDateTime,
+            o.IsDeleted,
+            o.CreatedAt,
+            o.UpdatedAt
+        FROM 
+            Orders o
+        INNER JOIN 
+            Users u ON o.UserId = u.UserId
+        INNER JOIN 
+            Books b ON o.BookId = b.BookId
+        WHERE 
+            o.IsDeleted = 0;
+    END TRY
+    BEGIN CATCH
+        DECLARE @ErrorMessage NVARCHAR(4000);
+        DECLARE @ErrorSeverity INT;
+        DECLARE @ErrorState INT;
+
+        SELECT 
+            @ErrorMessage = ERROR_MESSAGE(), 
+            @ErrorSeverity = ERROR_SEVERITY(), 
+            @ErrorState = ERROR_STATE();
+            
+        RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
+    END CATCH
+END;

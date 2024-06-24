@@ -22,7 +22,7 @@ namespace Bookstore.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult AddBook([FromBody] AddBookModel bookModel)
+        public IActionResult AddBook([FromBody] Add_or_Update_BookModel bookModel)
         {
             try
             {
@@ -130,7 +130,7 @@ namespace Bookstore.Controllers
         }
 
         [HttpPut("update-book/{bookId}")]
-        public IActionResult UpdateBook(int bookId, UpdateBookModel updateBookModel)
+        public IActionResult UpdateBook(int bookId, Add_or_Update_BookModel updateBookModel)
         {
             try
             {

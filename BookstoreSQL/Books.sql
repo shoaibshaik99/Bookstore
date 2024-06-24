@@ -25,7 +25,7 @@ CREATE TABLE Books (
 --ALTER TABLE Books
 --ADD DeletedAt DATETIME NULL;
 
---Add Book
+--Procedure to Add a Book
 ALTER PROCEDURE usp_add_book
     @Title NVARCHAR(MAX),
     @Author NVARCHAR(MAX),
